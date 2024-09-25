@@ -33,6 +33,16 @@ function App() {
     setAtividade('');
   };
 
+  const excluirAtividade = (dia, periodo) => {
+    setEstudos((prevEstudos) => ({
+      ...prevEstudos,
+      [dia]: {
+        ...prevEstudos[dia],
+        [periodo]: '',
+      },
+    }));
+  };
+
   return (
     <div className="app-container">
       <h1>Gerenciador de Estudos 2024</h1>
@@ -67,12 +77,21 @@ function App() {
           <h2>{dia}</h2>
           <div className="periodo-container">
             <strong>Manhã:</strong> {estudos[dia].manha}
+            {estudos[dia].manha && (
+              <button onClick={() => excluirAtividade(dia, 'manha')}>X</button>
+            )}
           </div>
           <div className="periodo-container">
             <strong>Tarde:</strong> {estudos[dia].tarde}
+            {estudos[dia].tarde && (
+              <button onClick={() => excluirAtividade(dia, 'tarde')}>X</button>
+            )}
           </div>
           <div className="periodo-container">
             <strong>Noite:</strong> {estudos[dia].noite}
+            {estudos[dia].noite && (
+              <button onClick={() => excluirAtividade(dia, 'noite')}>X</button>
+            )}
           </div>
         </div>
       ))}
