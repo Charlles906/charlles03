@@ -43,6 +43,10 @@ function App() {
     }));
   };
 
+  const handleReload = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="app-container">
       <h1>Gerenciador de Estudos 2024</h1>
@@ -95,6 +99,11 @@ function App() {
           </div>
         </div>
       ))}
+
+      {/* Botão para atualizar a página */}
+      <div className="reload-container">
+        <button onClick={handleReload}>Atualizar Página</button>
+      </div>
     </div>
   );
 }
